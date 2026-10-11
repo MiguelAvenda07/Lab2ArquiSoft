@@ -2,7 +2,7 @@ FROM maven:latest AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
-FROM eclipse-temurin:17-jre-jammy
+FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 # Copia el JAR de la etapa 'build' a la etapa actual
 COPY --from=build /app/target/lab2arq.jar lab2arq.jar
